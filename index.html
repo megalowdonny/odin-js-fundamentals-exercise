@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <title>Fundamentals Pt 3 Exercise</title>
+  <meta charset='UTF-8'>
+</head>
+<body>
+  <script>
+    // 1) A function that adds 7 to a given number
+    function add7() {
+      let number = +prompt('Please input a number: ', 0)
+      alert(number + 7);
+    }
+    
+    // 2) A function that takes 2 numbers and returns their product
+    function multiply() {
+      let number1 = +prompt('Input 1st number:', 0);
+      let number2 = +prompt('Input 2nd number:', 0);
+      alert(number1 * number2);
+    }
+
+    // 3) A function that takes a string and returns the string with only the first letter capitalized
+    function capitalize(){
+      strng = prompt('Please input the string to be capitalized: ', '');
+      // Gets the value of the first letter and stores an uppercase version of it
+      first = strng.charAt(0).toUpperCase();
+      // Gets the value of the rest of the string and stores a lowercase version of it
+      rest = strng.slice(1).toLowerCase();
+      // Displays both portions combined
+      alert(first + rest);
+    }
+
+    // 4) A function that takes a string and returns the last letter of it
+    function lastLetter() {
+      strng = prompt('Please input a string:', '');
+      // The .length - 1 will make it so the last character will be slice, regardless of string length
+      alert(strng.slice(strng.length - 1));
+    }
+
+    // I decided to make an interactive function chooser
+    let funcChoice = prompt('Choose 1 for add7, 2 for multiply, 3 for capitalize, and 4 for lastLetter');
+    switch (funcChoice) {
+      case '1':
+        add7();
+        break;
+      case '2':
+        multiply();
+        break;
+      case '3':
+        capitalize();
+        break;
+      case '4':
+        lastLetter();
+        break;
+    }
+  </script>
+</body>
