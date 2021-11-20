@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset='UTF-8'>
+  </head>
+  <body onload="playGame()">
+    <script>
+
+      let playerScore = 0;
+      let computerScore = 0;
+      let computerChoice;
+      let playerChoice;
+      // Picks between 1 and 3 for computer, 1 is rock, 2 is paper, 3 is scissors
+      function computerPlay() {
+        computerChoice = Math.floor(Math.random() * 3) + 1;
+        console.log(computerChoice);
+      }
+
+      // Gets player's choice
+      function playerPlay() {
+        playerChoice = prompt('Please choose rock, paper, or scissors:').toLowerCase();
+        switch (playerChoice) {
+          case 'rock':
+            playerChoice = 1;
+            break;
+          case 'paper':
+            playerChoice = 2;
+            break;
+          case 'scissors':
+            playerChoice = 3;
+            break;
+          default:
+            console.log("Wow you suck, don't even listen to instructions or anything, get outta here.")
+        }
+        console.log(playerChoice);
+      }
+
+      function playRound(computerChoice, playerChoice) {
+        computerPlay();
+        playerPlay();
+        console.log(typeof computerChoice);
+        console.log(typeof playerChoice);
+        if (computerChoice == playerChoice) {
+          console.log('It was a draw!');
+        } else if ((computerChoice == 1 && playerChoice == 2) || (computerChoice == 2 && playerChoice == 3) || (computerChoice == 3 && playerChoice == 1)) {
+          console.log('You win!');
+          playerScore++;
+        } else {
+          console.log('You lost!');
+          computerScore++;
+        }
+      }
+
+      function playGame() {
+        for (i = 1; i < 6; i++) {
+          playRound();
+        }
+        console.log(`You won ${playerScore} times and lost ${computerScore} times.`);
+      }
+    </script>
+  </body>
+</html>
